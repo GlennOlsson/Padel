@@ -9,13 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+		VStack {
+			Scoreboard()
+				.padding([.trailing, .leading])
+		}
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+			.previewInterfaceOrientation(.landscapeLeft)
     }
 }
