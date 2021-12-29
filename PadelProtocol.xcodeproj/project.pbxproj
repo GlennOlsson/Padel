@@ -14,6 +14,9 @@
 		21678372277A61D200E1E9DE /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678371277A61D200E1E9DE /* Scoreboard.swift */; };
 		21678374277A631300E1E9DE /* PointCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678373277A631300E1E9DE /* PointCounter.swift */; };
 		21678376277A6D7800E1E9DE /* Court.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678375277A6D7800E1E9DE /* Court.swift */; };
+		21678379277CC53E00E1E9DE /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678378277CC53E00E1E9DE /* Match.swift */; };
+		2167837C277CC55C00E1E9DE /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167837B277CC55C00E1E9DE /* Game.swift */; };
+		2167837E277CC7D500E1E9DE /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167837D277CC7D500E1E9DE /* Stack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		21678371277A61D200E1E9DE /* Scoreboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
 		21678373277A631300E1E9DE /* PointCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCounter.swift; sourceTree = "<group>"; };
 		21678375277A6D7800E1E9DE /* Court.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Court.swift; sourceTree = "<group>"; };
+		21678378277CC53E00E1E9DE /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		2167837B277CC55C00E1E9DE /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		2167837D277CC7D500E1E9DE /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 		21678362277A5DC800E1E9DE /* PadelProtocol */ = {
 			isa = PBXGroup;
 			children = (
+				2167837A277CC54500E1E9DE /* Models */,
 				21678377277A735B00E1E9DE /* Views */,
 				21678367277A5DCA00E1E9DE /* Assets.xcassets */,
 				21678369277A5DCA00E1E9DE /* Preview Content */,
@@ -82,6 +89,16 @@
 				21678373277A631300E1E9DE /* PointCounter.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2167837A277CC54500E1E9DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21678378277CC53E00E1E9DE /* Match.swift */,
+				2167837B277CC55C00E1E9DE /* Game.swift */,
+				2167837D277CC7D500E1E9DE /* Stack.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,9 +173,12 @@
 			files = (
 				21678366277A5DC800E1E9DE /* ContentView.swift in Sources */,
 				21678376277A6D7800E1E9DE /* Court.swift in Sources */,
+				2167837C277CC55C00E1E9DE /* Game.swift in Sources */,
 				21678364277A5DC800E1E9DE /* PadelProtocolApp.swift in Sources */,
+				2167837E277CC7D500E1E9DE /* Stack.swift in Sources */,
 				21678372277A61D200E1E9DE /* Scoreboard.swift in Sources */,
 				21678374277A631300E1E9DE /* PointCounter.swift in Sources */,
+				21678379277CC53E00E1E9DE /* Match.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

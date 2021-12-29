@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+
+	@ObservedObject var game: Game
+
     var body: some View {
 		VStack {
 			Court()
 
 			Scoreboard()
 				.padding([.trailing, .leading])
-		}
+		}.environmentObject(game)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+		let game = Game()
+		ContentView(game: game)
 			.previewInterfaceOrientation(.landscapeLeft)
     }
 }

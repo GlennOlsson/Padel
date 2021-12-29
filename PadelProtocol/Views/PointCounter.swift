@@ -10,11 +10,10 @@ import SwiftUI
 struct PointCounter: View {
 
 	let color: Color
+	let action: () -> Void
 
     var body: some View {
-		Button {
-			print("add")
-		} label: {
+		Button(action: action) {
 			ZStack {
 				Circle()
 					.foregroundColor(color)
@@ -30,6 +29,6 @@ struct PointCounter: View {
 
 struct PointCounter_Previews: PreviewProvider {
     static var previews: some View {
-		PointCounter(color: Color.blue)
+		PointCounter(color: Color.blue, action: {})
     }
 }

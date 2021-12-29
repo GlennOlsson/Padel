@@ -7,10 +7,30 @@
 
 import SwiftUI
 
+///Pad to be of set size characters
+func padd_score(_ str: String) -> String {
+	let padd_size = 3
+	let append_str = String(repeating: " ", count: padd_size - str.count)
+	return str.appending(append_str)
+}
+
 struct Scoreboard: View {
+
+	@EnvironmentObject var game: Game
+
     var body: some View {
-		HStack {
-			PointCounter(color: Color.blue)
+
+		let score = game.score()
+
+		let t1_score = padd_score(score.0)
+		let t2_score = padd_score(score.1)
+
+		let is_game_over = game.is_over()
+
+		return HStack {
+			PointCounter(color: Color.blue) {
+				game.increase_points(for: .team1)
+			}.disabled(is_game_over)
 
 			HStack {
 				Spacer(minLength: 50)
@@ -23,14 +43,14 @@ struct Scoreboard: View {
 				Spacer(minLength: 50)
 
 				VStack(alignment: .center) {
-					Text("15 - 0 ")
+					Text("\(t1_score) - \(t2_score)")
 						.font(.largeTitle.monospaced())
 
 					Text("(1 - 0)")
 						.font(.title2.monospaced())
 
 					Button("Ångra") {
-						print("")
+						game.undo_score()
 					}.padding()
 				}
 
@@ -44,7 +64,9 @@ struct Scoreboard: View {
 				Spacer(minLength: 50)
 			}.fixedSize()
 
-			PointCounter(color: Color.red)
+			PointCounter(color: Color.red) {
+				game.increase_points(for: .team2)
+			}.disabled(is_game_over)
 		}
     }
 }
