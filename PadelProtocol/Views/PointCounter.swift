@@ -12,14 +12,19 @@ struct PointCounter: View {
 	let color: Color
 
     var body: some View {
-		ZStack {
-			Circle()
-				.foregroundColor(color)
-			Text("+")
-				.foregroundColor(Color.white)
-				.font(Font.system(size: 100))
-		}
-		.minimumScaleFactor(0.01)
+		Button {
+			print("add")
+		} label: {
+			ZStack {
+				Circle()
+					.foregroundColor(color)
+
+				Text("+")
+					.foregroundColor(Color.white)
+					.font(Font.system(size: 100))
+			}
+		}.minimumScaleFactor(0.01)
+			.padding()
     }
 }
 

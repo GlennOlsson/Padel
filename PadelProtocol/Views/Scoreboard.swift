@@ -12,35 +12,37 @@ struct Scoreboard: View {
 		HStack {
 			PointCounter(color: Color.blue)
 
-			Spacer(minLength: 50)
+			HStack {
+				Spacer(minLength: 50)
 
-			VStack(alignment: .trailing) {
-				Text("Lindblad")
-				Text("Rabun")
-			}
+				VStack(alignment: .trailing) {
+					Text("Lindblad")
+					Text("Rabun")
+				}
 
-			Spacer(minLength: 50)
+				Spacer(minLength: 50)
 
-			VStack(alignment: .center) {
-				Text("15   -   0")
-					.font(.largeTitle)
+				VStack(alignment: .center) {
+					Text("15 - 0 ")
+						.font(.largeTitle.monospaced())
 
-				Text("(1 - 0)")
-					.font(.title2)
+					Text("(1 - 0)")
+						.font(.title2.monospaced())
 
-				Button("Ångra") {
-					print("")
-				}.padding()
-			}
+					Button("Ångra") {
+						print("")
+					}.padding()
+				}
 
-			Spacer(minLength: 50)
+				Spacer(minLength: 50)
 
-			VStack(alignment: .leading)  {
-				Text("Olsson")
-				Text("Treutiger")
-			}
+				VStack(alignment: .leading)  {
+					Text("Olsson")
+					Text("Treutiger")
+				}
 
-			Spacer(minLength: 50)
+				Spacer(minLength: 50)
+			}.fixedSize()
 
 			PointCounter(color: Color.red)
 		}
