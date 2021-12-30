@@ -25,6 +25,10 @@ class Stack<T> {
 		return arr.popLast()
 	}
 
+	func removeLast() {
+		arr.removeLast()
+	}
+
 	func peek() -> T? {
 		return arr.last
 	}

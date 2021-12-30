@@ -16,6 +16,7 @@ func padd_score(_ str: String, end: Bool) -> String {
 
 struct Scoreboard: View {
 
+	@EnvironmentObject var set: Set
 	@EnvironmentObject var game: Game
 
     var body: some View {
@@ -26,6 +27,8 @@ struct Scoreboard: View {
 		let t2_score = padd_score(score.1, end: true)
 
 		let is_game_over = game.is_over()
+
+		let (t1_game_score, t2_game_score) = set.game_score()
 
 		return HStack {
 			PointCounter(color: Color.blue) {
@@ -46,7 +49,7 @@ struct Scoreboard: View {
 					Text("\(t1_score) - \(t2_score)")
 						.font(.largeTitle.monospaced())
 
-					Text("(1 - 0)")
+					Text("(\(t1_game_score) - \(t2_game_score))")
 						.font(.title2.monospaced())
 
 					Button("Ångra") {
@@ -71,9 +74,9 @@ struct Scoreboard: View {
     }
 }
 
-struct Scoreboard_Previews: PreviewProvider {
-    static var previews: some View {
-        Scoreboard()
-			.previewInterfaceOrientation(.landscapeLeft)
-    }
-}
+//struct Scoreboard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Scoreboard()
+//			.previewInterfaceOrientation(.landscapeLeft)
+//    }
+//}

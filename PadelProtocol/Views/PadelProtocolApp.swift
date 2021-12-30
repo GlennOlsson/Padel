@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct PadelProtocolApp: App {
+
+	let set: Set
+
+	init() {
+		set = Set(team_1_1: "Lindblad", team_1_2: "Rabun", team_2_1: "Olsson", team_2_2: "Treutiger", home: .team2)
+	}
+
     var body: some Scene {
         WindowGroup {
-			ContentView(game: Game(is_golden_ball: false))
+			ContentView()
+				.environmentObject(set)
         }
     }
 }

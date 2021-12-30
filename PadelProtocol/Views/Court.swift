@@ -12,15 +12,22 @@ struct Court: View {
 	let court_width: CGFloat = 500;
 	let court_height: CGFloat = 500 * 0.5;
 
+	@EnvironmentObject var game: Game
+
     var body: some View {
-		HStack {
+
+		let court_arrangement = game.court()
+		let left_side: [String] = court_arrangement[.left]!
+		let right_side: [String] = court_arrangement[.right]!
+
+		return HStack {
 			HStack {
 				VStack {
-					NameTag(name: "Lindblad")
+					NameTag(name: left_side[0], is_serving: game.serving_side == .left && game.server() == 0)
 
 					Spacer()
 
-					NameTag(name: "Rabun")
+					NameTag(name: left_side[1], is_serving: game.serving_side == .left && game.server() == 1)
 				}.padding()
 				Spacer()
 			}.frame(width: self.court_width/2)
@@ -34,11 +41,11 @@ struct Court: View {
 			HStack {
 				Spacer()
 				VStack {
-					NameTag(name: "Olsson")
+					NameTag(name: right_side[0], is_serving: game.serving_side == .right && game.server() == 0)
 
 					Spacer()
 
-					NameTag(name: "Treutiger", is_serving: true)
+					NameTag(name: right_side[1], is_serving: game.serving_side == .right && game.server() == 1)
 				}.padding()
 			}.frame(width: self.court_width/2)
 		}

@@ -14,7 +14,7 @@
 		21678372277A61D200E1E9DE /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678371277A61D200E1E9DE /* Scoreboard.swift */; };
 		21678374277A631300E1E9DE /* PointCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678373277A631300E1E9DE /* PointCounter.swift */; };
 		21678376277A6D7800E1E9DE /* Court.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678375277A6D7800E1E9DE /* Court.swift */; };
-		21678379277CC53E00E1E9DE /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678378277CC53E00E1E9DE /* Match.swift */; };
+		21678379277CC53E00E1E9DE /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678378277CC53E00E1E9DE /* Set.swift */; };
 		2167837C277CC55C00E1E9DE /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167837B277CC55C00E1E9DE /* Game.swift */; };
 		2167837E277CC7D500E1E9DE /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167837D277CC7D500E1E9DE /* Stack.swift */; };
 /* End PBXBuildFile section */
@@ -28,7 +28,7 @@
 		21678371277A61D200E1E9DE /* Scoreboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
 		21678373277A631300E1E9DE /* PointCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCounter.swift; sourceTree = "<group>"; };
 		21678375277A6D7800E1E9DE /* Court.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Court.swift; sourceTree = "<group>"; };
-		21678378277CC53E00E1E9DE /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		21678378277CC53E00E1E9DE /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		2167837B277CC55C00E1E9DE /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		2167837D277CC7D500E1E9DE /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,7 +94,7 @@
 		2167837A277CC54500E1E9DE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				21678378277CC53E00E1E9DE /* Match.swift */,
+				21678378277CC53E00E1E9DE /* Set.swift */,
 				2167837B277CC55C00E1E9DE /* Game.swift */,
 				2167837D277CC7D500E1E9DE /* Stack.swift */,
 			);
@@ -178,7 +178,7 @@
 				2167837E277CC7D500E1E9DE /* Stack.swift in Sources */,
 				21678372277A61D200E1E9DE /* Scoreboard.swift in Sources */,
 				21678374277A631300E1E9DE /* PointCounter.swift in Sources */,
-				21678379277CC53E00E1E9DE /* Match.swift in Sources */,
+				21678379277CC53E00E1E9DE /* Set.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

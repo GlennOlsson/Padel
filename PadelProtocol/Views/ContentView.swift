@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
 
-	@ObservedObject var game: Game
+	@EnvironmentObject var set: Set
 
     var body: some View {
+		let game = set.current_game()
+
 		VStack {
 			Court()
 
@@ -23,8 +25,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-		let game = Game()
-		ContentView(game: game)
+		ContentView()
 			.previewInterfaceOrientation(.landscapeLeft)
     }
 }
