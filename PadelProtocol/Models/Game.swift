@@ -11,14 +11,6 @@ let points = ["0", "15", "30", "40", "ADV"]
 // Max index before it is ADV, i.e. when it's 40
 let max_index = 3
 
-enum Team {
-	case team1, team2
-
-	func other() -> Team {
-		return self == .team1 ? .team2 : .team1
-	}
-}
-
 class Game: ObservableObject {
 	//Teams value is index in points array
 	@Published private var team_points: [Team: Int] = [.team1: 0, .team2: 0]
@@ -27,7 +19,11 @@ class Game: ObservableObject {
 
 	@Published private var game_over: Bool = false
 
-	private let is_golden_ball = true
+	private let is_golden_ball: Bool
+
+	init(is_golden_ball: Bool = true) {
+		self.is_golden_ball = is_golden_ball
+	}
 
 	func increase_points(for team: Team) {
 		if game_over == true {

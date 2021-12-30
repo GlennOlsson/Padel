@@ -7,6 +7,14 @@
 
 import Foundation
 
-class Match {
+enum Team {
+	case team1, team2
+
+	func other() -> Team {
+		return self == .team1 ? .team2 : .team1
+	}
+}
+
+class Set {
 	var games: [Game] = []
 }

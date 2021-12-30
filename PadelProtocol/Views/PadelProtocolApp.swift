@@ -11,7 +11,7 @@ import SwiftUI
 struct PadelProtocolApp: App {
     var body: some Scene {
         WindowGroup {
-			ContentView(game: Game())
+			ContentView(game: Game(is_golden_ball: false))
         }
     }
 }

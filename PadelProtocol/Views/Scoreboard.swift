@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-///Pad to be of set size characters
-func padd_score(_ str: String) -> String {
+///Pad to be of set size characters. end signifies if the pass should be at end of string (else at beginning)
+func padd_score(_ str: String, end: Bool) -> String {
 	let padd_size = 3
 	let append_str = String(repeating: " ", count: padd_size - str.count)
-	return str.appending(append_str)
+	return end ? str.appending(append_str) : append_str.appending(str)
 }
 
 struct Scoreboard: View {
@@ -22,8 +22,8 @@ struct Scoreboard: View {
 
 		let score = game.score()
 
-		let t1_score = padd_score(score.0)
-		let t2_score = padd_score(score.1)
+		let t1_score = padd_score(score.0, end: false)
+		let t2_score = padd_score(score.1, end: true)
 
 		let is_game_over = game.is_over()
 
