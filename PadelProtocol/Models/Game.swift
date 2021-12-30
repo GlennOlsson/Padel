@@ -105,8 +105,8 @@ class Game: ObservableObject {
 
 	///Returns index of serving team that the current server is at
 	func server() -> Int {
-		// - 1 because starts at 1 where it should be index 0
-		return (scorings.size() - 1) % 2
+		// - serving side because if right side, starting server is at index 0 but index 1 at left side
+		return (scorings.size() - serving_side.rawValue) % 2
 	}
 
 	///If is beginning of game

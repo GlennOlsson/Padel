@@ -15,8 +15,9 @@ enum Team {
 	}
 }
 
-enum CourtSide {
-	case left, right
+enum CourtSide: Int {
+	case left = 0
+	case right = 1
 
 	func other() -> CourtSide {
 		return self == .left ? .right : .left
@@ -32,7 +33,7 @@ class Set: ObservableObject {
 		self.teams = [.team1: [team_1_1, team_1_2], .team2: [team_2_1, team_2_2]]
 
 		let court_arrangement = arrangement(for: .left)
-		let first_game = Game(court_arrangement: court_arrangement, serving_side: .right)
+		let first_game = Game(court_arrangement: court_arrangement, serving_side: .left)
 		games.append(first_game)
 	}
 

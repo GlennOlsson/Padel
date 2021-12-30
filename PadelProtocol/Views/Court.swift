@@ -50,10 +50,9 @@ struct Court: View {
 			}.frame(width: self.court_width/2)
 		}
 		.frame(height: court_height)
-		.background(Color.white)
 		.overlay(
 			RoundedRectangle(cornerRadius: 10)
-				.stroke(Color.black, lineWidth: 1)
+				.stroke(Color.blackWhite, lineWidth: 1)
 		)
     }
 }
@@ -76,10 +75,9 @@ struct NameTag: View {
 				Text(name)
 					.padding(10)
 			}
-			.background(Color.white)
 			.overlay(
 				RoundedRectangle(cornerRadius: 10)
-					.stroke(Color.black, lineWidth: 1)
+					.stroke(Color.blackWhite, lineWidth: 1)
 			)
 		}
 	}

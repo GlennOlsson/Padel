@@ -17,6 +17,7 @@
 		21678379277CC53E00E1E9DE /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678378277CC53E00E1E9DE /* Set.swift */; };
 		2167837C277CC55C00E1E9DE /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167837B277CC55C00E1E9DE /* Game.swift */; };
 		2167837E277CC7D500E1E9DE /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167837D277CC7D500E1E9DE /* Stack.swift */; };
+		21966599277E022600139FA2 /* Color+PadelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21966598277E022600139FA2 /* Color+PadelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		21678378277CC53E00E1E9DE /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		2167837B277CC55C00E1E9DE /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		2167837D277CC7D500E1E9DE /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		21966598277E022600139FA2 /* Color+PadelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+PadelProtocol.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		21678362277A5DC800E1E9DE /* PadelProtocol */ = {
 			isa = PBXGroup;
 			children = (
+				21966597277E021100139FA2 /* Extensions */,
 				2167837A277CC54500E1E9DE /* Models */,
 				21678377277A735B00E1E9DE /* Views */,
 				21678367277A5DCA00E1E9DE /* Assets.xcassets */,
@@ -99,6 +102,14 @@
 				2167837D277CC7D500E1E9DE /* Stack.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		21966597277E021100139FA2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				21966598277E022600139FA2 /* Color+PadelProtocol.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +189,7 @@
 				2167837E277CC7D500E1E9DE /* Stack.swift in Sources */,
 				21678372277A61D200E1E9DE /* Scoreboard.swift in Sources */,
 				21678374277A631300E1E9DE /* PointCounter.swift in Sources */,
+				21966599277E022600139FA2 /* Color+PadelProtocol.swift in Sources */,
 				21678379277CC53E00E1E9DE /* Set.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
