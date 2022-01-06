@@ -9,11 +9,7 @@ import SwiftUI
 
 struct Sets: View {
 
-	let match: Match
-
-	func description(for score: (String, String)) -> String {
-		return "\(score.0) - \(score.1)"
-	}
+	@ObservedObject var match: Match
 
 	func description(for teams: [Team: [String]]) -> String {
 		let team_1: [String] = teams[.team1]!
@@ -29,18 +25,32 @@ struct Sets: View {
 				Section("Set \(i+1) \t \(tuple_desc(sets[i].game_score()))") {
 					
 					ForEach(sets[i].all_games()) { game in
-						HStack {
-							Text("\(description(for: game.score()))")
-
-							Spacer()
-
-							Text("\(game.is_over() ? "✅" : "⌛️")")
-						}
+						GameRow(game: game)
 					}
 				}
 			}
 		}.navigationBarTitle(description(for: match.get_teams()))
     }
+}
+
+fileprivate struct GameRow: View {
+	@ObservedObject var game: Game
+
+	var body: some View {
+		let is_over = game.is_over()
+
+		let nav_dest: AnyView = is_over ? AnyView(GameProtocol(game: game)) : AnyView(GameView(game: game))
+
+		return NavigationLink(destination: nav_dest) {
+			HStack {
+				Text("\(tuple_desc(game.score()))")
+
+				Spacer()
+
+				Text("\(is_over ? "✅" : "⌛️")")
+			}
+		}
+	}
 }
 
 struct Sets_Previews: PreviewProvider {

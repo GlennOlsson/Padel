@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  GameView.swift
 //  PadelProtocol
 //
 //  Created by Glenn Olsson on 2021-12-27.
@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct GameView: View {
 
-	@EnvironmentObject var set: Set
 	@ObservedObject var game: Game
 
     var body: some View {
@@ -18,11 +17,11 @@ struct ContentView: View {
 
 			if game.is_over() {
 				Button("Nytt Gem") {
-					set.new_game()
+					game.new_game()
 				}
 			}
 
-			Scoreboard()
+			Scoreboard(game: game)
 				.padding([.trailing, .leading])
 		}.environmentObject(game)
     }

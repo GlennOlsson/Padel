@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameProtocol: View {
 
-	let game: Game
+	@ObservedObject var game: Game
 
     var body: some View {
 		let scorings = game.get_scorings()

@@ -16,8 +16,7 @@ func padd_score(_ str: String, end: Bool) -> String {
 
 struct Scoreboard: View {
 
-	@EnvironmentObject var set: Set
-	@EnvironmentObject var game: Game
+	@ObservedObject var game: Game
 
     var body: some View {
 
@@ -28,7 +27,7 @@ struct Scoreboard: View {
 
 		let is_game_over = game.is_over()
 
-		let (t1_game_score, t2_game_score) = set.game_score()
+		let (t1_game_score, t2_game_score) = game.curr_set_score()
 
 		return HStack {
 			PointCounter(color: Color.blue) {

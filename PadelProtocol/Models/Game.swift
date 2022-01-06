@@ -104,6 +104,14 @@ class Game: ObservableObject, Identifiable {
 		flip_serving_pos()
 	}
 
+	func curr_set_score() -> (Int, Int) {
+		return set.game_score()
+	}
+
+	func new_game() {
+		set.new_game()
+	}
+
 	func score() -> (String, String) {
 		let (team1_i, team2_i) = scorings.peek()!
 		return (points[team1_i], points[team2_i])
