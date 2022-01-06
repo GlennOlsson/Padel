@@ -10,12 +10,17 @@ import SwiftUI
 struct ContentView: View {
 
 	@EnvironmentObject var set: Set
+	@ObservedObject var game: Game
 
     var body: some View {
-		let game = set.current_game()
-
 		VStack {
 			Court()
+
+			if game.is_over() {
+				Button("Nytt Gem") {
+					set.new_game()
+				}
+			}
 
 			Scoreboard()
 				.padding([.trailing, .leading])
@@ -23,9 +28,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-		ContentView()
-			.previewInterfaceOrientation(.landscapeLeft)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//		ContentView()
+//			.previewInterfaceOrientation(.landscapeLeft)
+//    }
+//}

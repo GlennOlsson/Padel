@@ -14,6 +14,10 @@ struct Court: View {
 
 	@EnvironmentObject var game: Game
 
+	init() {
+
+	}
+
     var body: some View {
 
 		let court_arrangement = game.court()

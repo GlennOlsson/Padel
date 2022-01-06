@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct PadelProtocolApp: App {
 
-	let set: Set
+	@ObservedObject var set: Set
 
 	init() {
 		set = Set(team_1_1: "Lindblad", team_1_2: "Rabun", team_2_1: "Olsson", team_2_2: "Treutiger", home: .team2)
@@ -18,7 +18,7 @@ struct PadelProtocolApp: App {
 
     var body: some Scene {
         WindowGroup {
-			ContentView()
+			ContentView(game: set.current_game())
 				.environmentObject(set)
         }
     }

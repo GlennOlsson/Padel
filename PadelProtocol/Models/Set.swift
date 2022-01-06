@@ -27,17 +27,23 @@ enum CourtSide: Int {
 class Set: ObservableObject {
 	@Published private var games: [Game] = []
 
-	private var teams: [Team: [String]]
+	@Published private var teams: [Team: [String]]
+
+	private var team1_at: CourtSide
 
 	init(team_1_1: String, team_1_2: String, team_2_1: String, team_2_2: String, home: Team) {
 		self.teams = [.team1: [team_1_1, team_1_2], .team2: [team_2_1, team_2_2]]
 
-		let court_arrangement = arrangement(for: .left)
-		let first_game = Game(court_arrangement: court_arrangement, serving_side: .left)
+		let start_serving_side: CourtSide = .left
+
+		team1_at = .left
+
+		let court_arrangement = arrangement()
+		let first_game = Game(court_arrangement: court_arrangement, serving_side: start_serving_side)
 		games.append(first_game)
 	}
 
-	private func arrangement(for team1_at: CourtSide) -> [CourtSide: [String]] {
+	private func arrangement() -> [CourtSide: [String]] {
 		return [team1_at: teams[.team1]!, team1_at.other(): teams[.team2]!]
 	}
 
@@ -63,5 +69,33 @@ class Set: ObservableObject {
 			}
 		}
 		return (team1_s, team2_s)
+	}
+
+	func new_game() {
+		//Need to:
+		// - Swap order of new serving team so correct person is serving
+		// - Change side of teams if is end of an odd game
+		// - Change serving team to other team
+
+		let prev_game = current_game()
+
+		let prev_serving_side = prev_game.serving_side
+
+		// Swap places of non-serving team (who will now serve)
+		let non_serving_team: Team = team1_at == prev_serving_side ? .team1 : .team2
+		teams[non_serving_team] = teams[non_serving_team]!.reversed()
+
+		/// If the last ended game was odd
+		let was_odd_game = games.count % 2 == 1
+
+		// If end of even game, change serving side
+		// At end of odd games, teams switch side to serving side stays the same
+		let new_serving_side = !was_odd_game ? prev_serving_side.other() : prev_serving_side
+
+		// If was odd game, change side of team1
+		team1_at = was_odd_game ? team1_at.other() : team1_at
+
+		let game = Game(court_arrangement: arrangement(), serving_side: new_serving_side)
+		games.append(game)
 	}
 }
