@@ -19,13 +19,17 @@ class Game: ObservableObject, Identifiable {
 
 	private let is_golden_ball: Bool
 
-	let uuid: UUID = .init()
+	var id: UUID = .init()
 
 	let serving_side: CourtSide
 	/// Each courtside has a list of the corresponding players in order from top to bottom
 	@Published private var court_arrangement: [CourtSide: [String]]
 
-	init(court_arrangement: [CourtSide: [String]], serving_side: CourtSide, is_golden_ball: Bool = true) {
+	private let set: Set
+
+	init(set: Set, court_arrangement: [CourtSide: [String]], serving_side: CourtSide, is_golden_ball: Bool = true) {
+		self.set = set
+		
 		self.scorings = .init()
 		self.scorings.push((0, 0))
 
@@ -39,7 +43,12 @@ class Game: ObservableObject, Identifiable {
 		court_arrangement[serving_side] = serving_side_arrangement.reversed()
 	}
 
-	func save_score(for team: Team, team_score: Int, other_team_score: Int) {
+	/// Get "description" of team, i.e. comma separated list of the team members
+	func get(team: Team) -> String {
+		self.set.get(team: team)
+	}
+
+	private func save_score(for team: Team, team_score: Int, other_team_score: Int) {
 		if team == .team1 {
 			scorings.push((team_score, other_team_score))
 		} else {
@@ -98,6 +107,14 @@ class Game: ObservableObject, Identifiable {
 	func score() -> (String, String) {
 		let (team1_i, team2_i) = scorings.peek()!
 		return (points[team1_i], points[team2_i])
+	}
+
+	///Returns a list of the scoreboard score for (team1, team2) throughout the game
+	func get_scorings() -> [(String, String)] {
+		let text_scorings: [(String, String)] = scorings.map({(t1, t2) in
+			return (points[t1], points[t2])
+		})
+		return text_scorings
 	}
 
 	///Get the current court arrangement

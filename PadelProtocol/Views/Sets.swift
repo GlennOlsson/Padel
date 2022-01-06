@@ -28,12 +28,12 @@ struct Sets: View {
 			ForEach(0..<sets.count) { i in
 				Section("Set \(i+1) \t \(tuple_desc(sets[i].game_score()))") {
 					
-					ForEach(sets[i].all_games(), id: \.uuid) { game in
+					ForEach(sets[i].all_games()) { game in
 						HStack {
 							Text("\(description(for: game.score()))")
-							
+
 							Spacer()
-							
+
 							Text("\(game.is_over() ? "✅" : "⌛️")")
 						}
 					}

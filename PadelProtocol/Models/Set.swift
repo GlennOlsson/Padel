@@ -31,18 +31,27 @@ class Set: ObservableObject {
 
 	private var team1_at: CourtSide
 
-	init(teams: [Team: [String]], team1_at: CourtSide) {
+	private let match: Match
+
+	init(match: Match, teams: [Team: [String]], team1_at: CourtSide) {
+		self.match = match
+
 		self.teams = teams
 
 		self.team1_at = team1_at
 
 		let court_arrangement = arrangement()
-		let first_game = Game(court_arrangement: court_arrangement, serving_side: self.team1_at)
+		let first_game = Game(set: self, court_arrangement: court_arrangement, serving_side: self.team1_at)
 		games.append(first_game)
 	}
 
 	private func arrangement() -> [CourtSide: [String]] {
 		return [team1_at: teams[.team1]!, team1_at.other(): teams[.team2]!]
+	}
+
+	/// Get "description" of team, i.e. comma separated list of the team members
+	func get(team: Team) -> String {
+		self.match.get(team: team)
 	}
 
 	func all_games() -> [Game] {
@@ -101,7 +110,7 @@ class Set: ObservableObject {
 		// If was odd game, change side of team1
 		team1_at = was_odd_game ? team1_at.other() : team1_at
 
-		let game = Game(court_arrangement: arrangement(), serving_side: new_serving_side)
+		let game = Game(set: self, court_arrangement: arrangement(), serving_side: new_serving_side)
 		games.append(game)
 	}
 

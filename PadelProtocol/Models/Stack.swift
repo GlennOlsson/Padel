@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Stack<T> {
+class Stack<T>: Sequence {
 
 	private var arr: [T] = []
 
@@ -35,5 +35,34 @@ class Stack<T> {
 
 	func size() -> Int {
 		return arr.count
+	}
+
+	func raw() -> [T] {
+		return arr
+	}
+
+	func makeIterator() -> StackIterator<T> {
+		return .init(self)
+	}
+}
+
+class StackIterator<T>: IteratorProtocol {
+	typealias Element = T
+
+	let stack: Stack<T>
+	var curr_i = 0
+
+	init(_ s: Stack<T>) {
+		self.stack = s
+	}
+
+	func next() -> T? {
+		guard curr_i < stack.raw().count else {
+			return nil
+		}
+		let elem = stack.raw()[curr_i]
+		curr_i += 1
+
+		return elem
 	}
 }

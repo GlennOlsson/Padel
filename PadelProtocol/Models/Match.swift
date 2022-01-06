@@ -13,7 +13,7 @@ class Match: ObservableObject, Identifiable {
 
 	@Published private var teams: [Team: [String]]
 
-	let uuid: UUID = .init()
+	var id: UUID = .init()
 
 	private let home: Team
 
@@ -27,10 +27,16 @@ class Match: ObservableObject, Identifiable {
 		return self.teams
 	}
 
+	/// Get "description" of team, i.e. comma separated list of the team members
+	func get(team: Team) -> String {
+		let members = self.teams[team]!
+		return "\(members[0]), \(members[1])"
+	}
+
 	func new_set() {
 		// If team1 is home and is start of an odd game, set team1 at home pos == left
 		let team1_at: CourtSide = self.home == .team1 && sets.count % 2 == 0 ? .left : .right
-		let set = Set(teams: teams, team1_at: team1_at)
+		let set = Set(match: self, teams: teams, team1_at: team1_at)
 
 		sets.append(set)
 	}

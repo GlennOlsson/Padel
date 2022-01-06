@@ -89,7 +89,7 @@ struct Matches: View {
 		NavigationView {
 		VStack {
 			List {
-				ForEach(self.matches, id: \.uuid) { match in
+				ForEach(self.matches) { match in
 					NavigationLink(destination: Sets(match: match)){
 						HStack {
 							VStack(alignment: .leading) {

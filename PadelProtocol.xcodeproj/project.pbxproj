@@ -11,6 +11,7 @@
 		21344FCA278678C9000B6A44 /* Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21344FC9278678C9000B6A44 /* Matches.swift */; };
 		21344FCC27868025000B6A44 /* Sets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21344FCB27868025000B6A44 /* Sets.swift */; };
 		21344FCF2786874A000B6A44 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21344FCE2786874A000B6A44 /* Helpers.swift */; };
+		21344FD127868CE8000B6A44 /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21344FD027868CE8000B6A44 /* GameProtocol.swift */; };
 		21678364277A5DC800E1E9DE /* PadelProtocolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678363277A5DC800E1E9DE /* PadelProtocolApp.swift */; };
 		21678366277A5DC800E1E9DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678365277A5DC800E1E9DE /* ContentView.swift */; };
 		21678368277A5DCA00E1E9DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21678367277A5DCA00E1E9DE /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		21344FC9278678C9000B6A44 /* Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matches.swift; sourceTree = "<group>"; };
 		21344FCB27868025000B6A44 /* Sets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sets.swift; sourceTree = "<group>"; };
 		21344FCE2786874A000B6A44 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		21344FD027868CE8000B6A44 /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
 		21678360277A5DC800E1E9DE /* PadelProtocol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadelProtocol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21678363277A5DC800E1E9DE /* PadelProtocolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadelProtocolApp.swift; sourceTree = "<group>"; };
 		21678365277A5DC800E1E9DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				21678373277A631300E1E9DE /* PointCounter.swift */,
 				21344FC9278678C9000B6A44 /* Matches.swift */,
 				21344FCB27868025000B6A44 /* Sets.swift */,
+				21344FD027868CE8000B6A44 /* GameProtocol.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				21344FCF2786874A000B6A44 /* Helpers.swift in Sources */,
 				21966599277E022600139FA2 /* Color+PadelProtocol.swift in Sources */,
 				21678379277CC53E00E1E9DE /* Set.swift in Sources */,
+				21344FD127868CE8000B6A44 /* GameProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
