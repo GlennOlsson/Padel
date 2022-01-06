@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21344FC827867365000B6A44 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21344FC727867365000B6A44 /* Match.swift */; };
+		21344FCA278678C9000B6A44 /* Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21344FC9278678C9000B6A44 /* Matches.swift */; };
 		21678364277A5DC800E1E9DE /* PadelProtocolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678363277A5DC800E1E9DE /* PadelProtocolApp.swift */; };
 		21678366277A5DC800E1E9DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678365277A5DC800E1E9DE /* ContentView.swift */; };
 		21678368277A5DCA00E1E9DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21678367277A5DCA00E1E9DE /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		211D86D9277F51F00075B740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21344FC727867365000B6A44 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		21344FC9278678C9000B6A44 /* Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matches.swift; sourceTree = "<group>"; };
 		21678360277A5DC800E1E9DE /* PadelProtocol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadelProtocol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21678363277A5DC800E1E9DE /* PadelProtocolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadelProtocolApp.swift; sourceTree = "<group>"; };
 		21678365277A5DC800E1E9DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				21678375277A6D7800E1E9DE /* Court.swift */,
 				21678371277A61D200E1E9DE /* Scoreboard.swift */,
 				21678373277A631300E1E9DE /* PointCounter.swift */,
+				21344FC9278678C9000B6A44 /* Matches.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			files = (
 				21678366277A5DC800E1E9DE /* ContentView.swift in Sources */,
 				21678376277A6D7800E1E9DE /* Court.swift in Sources */,
+				21344FCA278678C9000B6A44 /* Matches.swift in Sources */,
 				2167837C277CC55C00E1E9DE /* Game.swift in Sources */,
 				21344FC827867365000B6A44 /* Match.swift in Sources */,
 				21678364277A5DC800E1E9DE /* PadelProtocolApp.swift in Sources */,

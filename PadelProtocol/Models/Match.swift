@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 
-class Match: ObservableObject {
+class Match: ObservableObject, Identifiable {
 	@Published private var sets: [Set] = []
 
 	@Published private var teams: [Team: [String]]
+
+	let uuid: UUID = .init()
 
 	private let home: Team
 
@@ -19,6 +21,10 @@ class Match: ObservableObject {
 		self.teams = [.team1: [team_1_1, team_1_2], .team2: [team_2_1, team_2_2]]
 		self.home = home
 		new_set()
+	}
+
+	func get_teams() -> [Team: [String]] {
+		return self.teams
 	}
 
 	func new_set() {
@@ -53,6 +59,8 @@ class Match: ObservableObject {
 	}
 
 	func is_over() -> Bool {
-		return true
+		let score = set_score()
+		//TODO: Introduce Marginal
+		return score.0 == 2 || score.1 == 2
 	}
 }

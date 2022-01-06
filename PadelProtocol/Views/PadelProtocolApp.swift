@@ -19,8 +19,9 @@ struct PadelProtocolApp: App {
 
     var body: some Scene {
         WindowGroup {
-			ContentView(game: set.current_game())
-				.environmentObject(set)
+			Matches()
+//			ContentView(game: set.current_game())
+//				.environmentObject(set)
         }
     }
 }
