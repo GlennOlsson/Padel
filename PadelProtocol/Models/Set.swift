@@ -31,15 +31,13 @@ class Set: ObservableObject {
 
 	private var team1_at: CourtSide
 
-	init(team_1_1: String, team_1_2: String, team_2_1: String, team_2_2: String, home: Team) {
-		self.teams = [.team1: [team_1_1, team_1_2], .team2: [team_2_1, team_2_2]]
+	init(teams: [Team: [String]], team1_at: CourtSide) {
+		self.teams = teams
 
-		let start_serving_side: CourtSide = .left
-
-		team1_at = .left
+		self.team1_at = team1_at
 
 		let court_arrangement = arrangement()
-		let first_game = Game(court_arrangement: court_arrangement, serving_side: start_serving_side)
+		let first_game = Game(court_arrangement: court_arrangement, serving_side: self.team1_at)
 		games.append(first_game)
 	}
 
@@ -72,6 +70,10 @@ class Set: ObservableObject {
 	}
 
 	func new_game() {
+		guard !is_over() else {
+			// TODO: Throw exception? Signal error somehow
+			return
+		}
 		//Need to:
 		// - Swap order of new serving team so correct person is serving
 		// - Change side of teams if is end of an odd game
@@ -97,5 +99,20 @@ class Set: ObservableObject {
 
 		let game = Game(court_arrangement: arrangement(), serving_side: new_serving_side)
 		games.append(game)
+	}
+
+	func is_over() -> Bool {
+		let (t1_score, t2_score) = game_score()
+		//TODO: Improve this logic. Tie breaker? Marginal of games
+		return t1_score == 6 || t2_score == 6
+	}
+
+	func winning_team() -> Team? {
+		guard is_over() else {
+			return nil
+		}
+		let (t1_score, _) = game_score()
+		// TODO: Fix when is_over logic is improved
+		return t1_score == 6 ? .team1 : .team2
 	}
 }
