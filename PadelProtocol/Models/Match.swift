@@ -35,6 +35,10 @@ class Match: ObservableObject, Identifiable {
 		sets.append(set)
 	}
 
+	func all_sets() -> [Set] {
+		return sets
+	}
+
 	func current_set() -> Set {
 		return sets.last!
 	}

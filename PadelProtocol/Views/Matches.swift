@@ -10,6 +10,41 @@ import SwiftUI
 func default_matches() -> [Match] {
 	let match1 = Match(team_1_1: "Olsson", team_1_2: "Treutiger", team_2_1: "Lindblad", team_2_2: "Rabun", home: .team1)
 
+	let m1_s1 = match1.current_set()
+
+	for _ in 0..<6 {
+		// Make 1 - 0
+		let game = m1_s1.current_game()
+
+		game.increase_points(for: .team1) // 15 - 0
+		game.increase_points(for: .team1) // 30 - 0
+		game.increase_points(for: .team1) // 40 - 0
+		game.increase_points(for: .team2) // 40 - 15
+		game.increase_points(for: .team1) // OVER 40 - 15
+
+		m1_s1.new_game()
+	}
+
+	match1.new_set()
+
+	for _ in 0..<3 {
+		// Make 1 - 0
+		let game = match1.current_set().current_game()
+
+		game.increase_points(for: .team1) // 15 - 0
+		game.increase_points(for: .team1) // 30 - 0
+		game.increase_points(for: .team2) // 30 - 15
+		game.increase_points(for: .team2) // 30 - 30
+		game.increase_points(for: .team1) // 40 - 15
+		game.increase_points(for: .team1) // OVER 40 - 15
+
+		match1.current_set().new_game()
+	}
+
+	match1.current_set().current_game().increase_points(for: .team1) // 15 - 0
+	match1.current_set().current_game().increase_points(for: .team1) // 30 - 0
+	match1.current_set().current_game().increase_points(for: .team2) // 30 - 15
+
 	let match2 = Match(team_1_1: "Olsson", team_1_2: "Treutiger", team_2_1: "Nadal", team_2_2: "Borg", home: .team1)
 
 	let match3 = Match(team_1_1: "Andersson", team_1_2: "Petterson", team_2_1: "Lundström", team_2_2: "Jag", home: .team2)
@@ -50,26 +85,24 @@ struct Matches: View {
 		return "\(team_1[0]), \(team_1[1]) vs. \(team_2[0]), \(team_2[1])"
 	}
 
-	func description(for score: (Int, Int)) -> String {
-		return "(\(score.0) - \(score.1))"
-	}
-
     var body: some View {
 		NavigationView {
 		VStack {
 			List {
 				ForEach(self.matches, id: \.uuid) { match in
-					HStack {
-						VStack(alignment: .leading) {
-							Text(description(for: match.get_teams()))
-								.font(.headline)
+					NavigationLink(destination: Sets(match: match)){
+						HStack {
+							VStack(alignment: .leading) {
+								Text(description(for: match.get_teams()))
+									.font(.headline)
+								Spacer()
+								Text("(\(tuple_desc(match.set_score())))")
+									.font(.caption)
+							}
 							Spacer()
-							Text(description(for: match.set_score()))
-								.font(.caption)
-						}
-						Spacer()
-						Text("\(match.is_over() ? "Slut" : "Pågående")")
-					}.padding()
+							Text("\(match.is_over() ? "Slut" : "Pågående")")
+						}.padding()
+					}
 				}
 			}
 		}

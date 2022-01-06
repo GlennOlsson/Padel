@@ -45,6 +45,10 @@ class Set: ObservableObject {
 		return [team1_at: teams[.team1]!, team1_at.other(): teams[.team2]!]
 	}
 
+	func all_games() -> [Game] {
+		return games
+	}
+
 	//there's always at least one came
 	func current_game() -> Game {
 		return games.last!

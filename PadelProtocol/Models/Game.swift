@@ -11,13 +11,15 @@ let points = ["0", "15", "30", "40", "ADV"]
 // Max index before it is ADV, i.e. when it's 40
 let max_index = 3
 
-class Game: ObservableObject {
+class Game: ObservableObject, Identifiable {
 	//Teams value is index in points array. Index 0 in tuple is for team1
 	private let scorings: Stack<(Int, Int)>
 
 	@Published private var winner_team: Team?
 
 	private let is_golden_ball: Bool
+
+	let uuid: UUID = .init()
 
 	let serving_side: CourtSide
 	/// Each courtside has a list of the corresponding players in order from top to bottom
