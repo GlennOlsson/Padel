@@ -12,6 +12,7 @@
 		21344FCC27868025000B6A44 /* Sets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21344FCB27868025000B6A44 /* Sets.swift */; };
 		21344FCF2786874A000B6A44 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21344FCE2786874A000B6A44 /* Helpers.swift */; };
 		21344FD127868CE8000B6A44 /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21344FD027868CE8000B6A44 /* GameProtocol.swift */; };
+		21344FD32787750F000B6A44 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21344FD22787750F000B6A44 /* AppState.swift */; };
 		21678364277A5DC800E1E9DE /* PadelProtocolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678363277A5DC800E1E9DE /* PadelProtocolApp.swift */; };
 		21678366277A5DC800E1E9DE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21678365277A5DC800E1E9DE /* GameView.swift */; };
 		21678368277A5DCA00E1E9DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21678367277A5DCA00E1E9DE /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		21344FCB27868025000B6A44 /* Sets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sets.swift; sourceTree = "<group>"; };
 		21344FCE2786874A000B6A44 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		21344FD027868CE8000B6A44 /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
+		21344FD22787750F000B6A44 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		21678360277A5DC800E1E9DE /* PadelProtocol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadelProtocol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21678363277A5DC800E1E9DE /* PadelProtocolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadelProtocolApp.swift; sourceTree = "<group>"; };
 		21678365277A5DC800E1E9DE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				2167837B277CC55C00E1E9DE /* Game.swift */,
 				2167837D277CC7D500E1E9DE /* Stack.swift */,
 				21344FC727867365000B6A44 /* Match.swift */,
+				21344FD22787750F000B6A44 /* AppState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				2167837C277CC55C00E1E9DE /* Game.swift in Sources */,
 				21344FCC27868025000B6A44 /* Sets.swift in Sources */,
 				21344FC827867365000B6A44 /* Match.swift in Sources */,
+				21344FD32787750F000B6A44 /* AppState.swift in Sources */,
 				21678364277A5DC800E1E9DE /* PadelProtocolApp.swift in Sources */,
 				2167837E277CC7D500E1E9DE /* Stack.swift in Sources */,
 				21678372277A61D200E1E9DE /* Scoreboard.swift in Sources */,

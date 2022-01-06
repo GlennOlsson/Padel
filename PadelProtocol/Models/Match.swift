@@ -8,8 +8,16 @@
 import Foundation
 import SwiftUI
 
-class Match: ObservableObject, Identifiable {
-	@Published private var sets: [Set] = []
+class Match: ObservableObject, Identifiable, Hashable {
+	static func == (lhs: Match, rhs: Match) -> Bool {
+		return lhs.id == rhs.id
+	}
+
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id)
+	}
+
+	@Published var sets: [Set] = []
 
 	@Published private var teams: [Team: [String]]
 
@@ -40,11 +48,7 @@ class Match: ObservableObject, Identifiable {
 
 		sets.append(set)
 	}
-
-	func all_sets() -> [Set] {
-		return sets
-	}
-
+	
 	func current_set() -> Set {
 		return sets.last!
 	}

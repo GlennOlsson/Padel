@@ -25,9 +25,11 @@ enum CourtSide: Int {
 }
 
 class Set: ObservableObject {
-	@Published private var games: [Game] = []
+	@Published var games: [Game] = []
 
 	@Published private var teams: [Team: [String]]
+
+	@Published private var games_score: (Int, Int) = (0, 0)
 
 	private var team1_at: CourtSide
 
@@ -63,23 +65,17 @@ class Set: ObservableObject {
 		return games.last!
 	}
 
+	func game_won(team: Team) {
+		if team == .team1 {
+			games_score.0 += 1
+		} else {
+			games_score.1 += 1
+		}
+	}
+
 	///Return (team1score, team2score) in that order, for previous games
 	func game_score() -> (Int, Int) {
-		var team1_s = 0
-		var team2_s = 0
-		for game in games {
-			switch game.winning_team() {
-			case .team1:
-				team1_s += 1
-				break
-			case .team2:
-				team2_s += 1
-				break
-			default:
-				print("Game not over")
-			}
-		}
-		return (team1_s, team2_s)
+		return games_score
 	}
 
 	func new_game() {

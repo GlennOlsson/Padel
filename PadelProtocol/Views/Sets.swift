@@ -18,26 +18,46 @@ struct Sets: View {
 	}
 
 	var body: some View {
-		let sets: [Set] = match.all_sets()
+
+		let sets: [Set] = match.sets
 
 		return List {
-			ForEach(0..<sets.count) { i in
+			ForEach(sets.indices) { i in
 				Section("Set \(i+1) \t \(tuple_desc(sets[i].game_score()))") {
-					
+
 					ForEach(sets[i].all_games()) { game in
 						GameRow(game: game)
 					}
+				}
+			}
+			if let current_set = sets.last, current_set.current_game().is_ended && !current_set.is_over() {
+				Button("Nytt gem") {
+					sets.last!.new_game()
 				}
 			}
 		}.navigationBarTitle(description(for: match.get_teams()))
     }
 }
 
+fileprivate struct GamesList: View {
+	@ObservedObject var set: Set
+	let i: Int
+
+	var body: some View {
+		Section("Set \(i+1) \t \(tuple_desc(set.game_score()))") {
+
+			ForEach(set.all_games()) { game in
+				GameRow(game: game)
+			}
+		}
+	}
+}
+
 fileprivate struct GameRow: View {
 	@ObservedObject var game: Game
 
 	var body: some View {
-		let is_over = game.is_over()
+		let is_over = game.is_ended
 
 		let nav_dest: AnyView = is_over ? AnyView(GameProtocol(game: game)) : AnyView(GameView(game: game))
 

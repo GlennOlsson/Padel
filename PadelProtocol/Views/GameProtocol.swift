@@ -25,7 +25,7 @@ struct GameProtocol: View {
 				}.padding()
 					.font(.title)
 
-				HStack {
+				LazyHStack {
 					ForEach(0..<scorings.count) { i in
 						VStack {
 							Text(scorings[i].0)
@@ -42,7 +42,7 @@ struct GameProtocol: View {
 
 struct GameProtocol_Previews: PreviewProvider {
     static var previews: some View {
-		GameProtocol(game: default_matches()[0].all_sets()[0].all_games()[3])
+		GameProtocol(game: default_matches()[0].sets[0].all_games()[3])
 .previewInterfaceOrientation(.landscapeLeft)
     }
 }

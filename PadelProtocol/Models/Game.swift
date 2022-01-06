@@ -27,6 +27,8 @@ class Game: ObservableObject, Identifiable {
 
 	private let set: Set
 
+	@Published var is_ended: Bool = false
+
 	init(set: Set, court_arrangement: [CourtSide: [String]], serving_side: CourtSide, is_golden_ball: Bool = true) {
 		self.set = set
 		
@@ -134,6 +136,15 @@ class Game: ObservableObject, Identifiable {
 	func server() -> Int {
 		// - serving side because if right side, starting server is at index 0 but index 1 at left side
 		return (scorings.size() - serving_side.rawValue) % 2
+	}
+
+	func end() {
+		//TODO: Report error somehow
+		guard winner_team != nil else {
+			return
+		}
+		is_ended = true
+		set.game_won(team: winner_team!)
 	}
 
 	///If is beginning of game

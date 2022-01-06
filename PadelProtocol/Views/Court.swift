@@ -9,9 +9,6 @@ import SwiftUI
 
 struct Court: View {
 
-	let court_width: CGFloat = 500;
-	let court_height: CGFloat = 500 * 0.5;
-
 	@EnvironmentObject var game: Game
 
     var body: some View {
@@ -20,40 +17,47 @@ struct Court: View {
 		let left_side: [String] = court_arrangement[.left]!
 		let right_side: [String] = court_arrangement[.right]!
 
-		return HStack {
-			HStack {
-				VStack {
-					NameTag(name: left_side[0], is_serving: game.serving_side == .left && game.server() == 0)
-
-					Spacer()
-
-					NameTag(name: left_side[1], is_serving: game.serving_side == .left && game.server() == 1)
-				}.padding()
-				Spacer()
-			}.frame(width: self.court_width/2)
-
-			Rectangle()
-			//For some reason expands beyond frame when = court_height
-				.frame(width: 1, height: court_height * 0.99)
-				.background(Color.black)
-
-
+		return GeometryReader { geometry in
 			HStack {
 				Spacer()
-				VStack {
-					NameTag(name: right_side[0], is_serving: game.serving_side == .right && game.server() == 0)
+				HStack {
+					HStack {
+						VStack {
+							NameTag(name: left_side[0], is_serving: game.serving_side == .left && game.server() == 0)
 
-					Spacer()
+							Spacer()
 
-					NameTag(name: right_side[1], is_serving: game.serving_side == .right && game.server() == 1)
-				}.padding()
-			}.frame(width: self.court_width/2)
+							NameTag(name: left_side[1], is_serving: game.serving_side == .left && game.server() == 1)
+						}.padding()
+						Spacer()
+					}.frame(width: geometry.size.width * 0.25)
+
+					Rectangle()
+					//For some reason expands beyond frame when = court_height
+						.frame(width: 1)
+						.background(Color.black)
+
+
+					HStack {
+						Spacer()
+						VStack {
+							NameTag(name: right_side[0], is_serving: game.serving_side == .right && game.server() == 0)
+
+							Spacer()
+
+							NameTag(name: right_side[1], is_serving: game.serving_side == .right && game.server() == 1)
+						}.padding()
+					}.frame(width: geometry.size.width * 0.25)
+				}
+				.frame(height: geometry.size.width * 0.25)
+				.padding()
+				.overlay(
+					RoundedRectangle(cornerRadius: 10)
+						.stroke(Color.blackWhite, lineWidth: 1)
+				)
+				Spacer()
+			}
 		}
-		.frame(height: court_height)
-		.overlay(
-			RoundedRectangle(cornerRadius: 10)
-				.stroke(Color.blackWhite, lineWidth: 1)
-		)
     }
 }
 

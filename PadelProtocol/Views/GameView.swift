@@ -11,18 +11,21 @@ struct GameView: View {
 
 	@ObservedObject var game: Game
 
+	@Environment(\.dismiss) var dismiss
+
     var body: some View {
 		VStack {
 			Court()
 
-			if game.is_over() {
-				Button("Nytt Gem") {
-					game.new_game()
-				}
-			}
-
 			Scoreboard(game: game)
 				.padding([.trailing, .leading])
+
+			if game.is_over() {
+				Button("Avsluta gem") {
+					game.end()
+					dismiss()
+				}
+			}
 		}.environmentObject(game)
     }
 }
